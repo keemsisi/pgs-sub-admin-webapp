@@ -1,0 +1,254 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-md-12" style="position: sticky">
+        <h2>User Grades - {{username}} </h2>
+        <ol class="breadcrumb">
+            <li>
+                <a routerLink="/dashboard/admindashboard">Dashboard</a>
+            </li>
+            <li>
+                <a [routerLink]="['/dashboard/users']">Staff</a>
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+
+        <ng-container *ngTemplateOutlet="assessment"></ng-container>
+    </div>
+
+    <ng-template #assessment>
+        <div class="container">
+            <div style="background-color: white;">
+                <h2>Journal In Print Assement</h2>
+                <p-dataTable #dt0 [tableStyle]="{'table-layout':'auto'}" [value]="gradingResults.JournalArticlesInPrint"
+                    [paginator]="true" [rows]="30" [style]="{ 'min-width' : '300px'}" class="ptablestyle">
+
+                    <p-column field="sn" header="SN" [filter]="true" filterMatchMode="contains" [sortable]="true">
+                    </p-column>
+                    <p-column field="title-of-paper" header="Title Of Paper" [filter]="true" filterMatchMode="contains"
+                        [sortable]="true"></p-column>
+                    <p-column field="category-of-outlet" header="Category Of Outlet" [filter]="true"
+                        filterMatchMode="contains" [sortable]="true"></p-column>
+                    <p-column field="authorship" header="Authroship" [filter]="true" filterMatchMode="contains"
+                        [sortable]="true">
+                    </p-column>
+                    <p-column field="score" header="Score" [filter]="true" filterMatchMode="contains" [sortable]="true">
+                    </p-column>
+                    <p-column field="quality-score-on-paper" header="Quality Score" [filter]="true"
+                        filterMatchMode="contains" [sortable]="true"></p-column>
+                    <p-column field="score-as-factor-of-outlet-and-quality" header="Score as Factor" [filter]="true"
+                        filterMatchMode="contains" [sortable]="true"></p-column>
+                    <p-column field="remark" header="Remark" [filter]="true" filterMatchMode="contains"
+                        [sortable]="true">
+                    </p-column>
+                </p-dataTable>
+            </div>
+        </div>
+
+
+
+        <div style="background-color: white;">
+            <h2> Conference Paper - Peer Reviewed Proceedings </h2>
+            <p-dataTable #dt0 [tableStyle]="{'table-layout':'auto'}" [value]="gradingResults.Books" [paginator]="true"
+                [rows]="30" [style]="{ 'min-width' : '300px'}" class="ptablestyle">
+
+                <p-column field="sn" header="SN" [filter]="true" filterMatchMode="contains" [sortable]="true">
+                </p-column>
+                <p-column field="title-of-paper" header="Title Of Paper" [filter]="true" filterMatchMode="contains"
+                    [sortable]="true"></p-column>
+                <p-column field="category-of-outlet" header="Category Of Outlet" [filter]="true"
+                    filterMatchMode="contains" [sortable]="true"></p-column>
+                <p-column field="authorship" header="Authroship" [filter]="true" filterMatchMode="contains"
+                    [sortable]="true">
+                </p-column>
+                <p-column field="score" header="Score" [filter]="true" filterMatchMode="contains" [sortable]="true">
+                </p-column>
+                <p-column field="quality-score-on-paper" header="Quality Score" [filter]="true"
+                    filterMatchMode="contains" [sortable]="true"></p-column>
+                <p-column field="score-as-factor-of-outlet-and-quality" header="Score as Factor" [filter]="true"
+                    filterMatchMode="contains" [sortable]="true"></p-column>
+
+                <p-column field="remark" header="Remark" [filter]="true" filterMatchMode="contains" [sortable]="true">
+                </p-column>
+            </p-dataTable>
+        </div>
+
+
+
+        <div style="background-color: white;">
+            <h2> Edited Conference Proceedings </h2>
+            <p-dataTable #dt0 [tableStyle]="{'table-layout':'auto'}"
+                [value]="gradingResults.EditedConferenceProceedings" [paginator]="true" [rows]="30"
+                [style]="{ 'min-width' : '300px'}" class="ptablestyle">
+
+                <p-column field="sn" header="SN" [filter]="true" filterMatchMode="contains" [sortable]="true">
+                </p-column>
+                <p-column field="title-of-paper" header="Title Of Paper" [filter]="true" filterMatchMode="contains"
+                    [sortable]="true"></p-column>
+                <p-column field="category-of-outlet" header="Category Of Outlet" [filter]="true"
+                    filterMatchMode="contains" [sortable]="true"></p-column>
+                <p-column field="authorship" header="Authroship" [filter]="true" filterMatchMode="contains"
+                    [sortable]="true">
+                </p-column>
+                <p-column field="score" header="Score" [filter]="true" filterMatchMode="contains" [sortable]="true">
+                </p-column>
+                <p-column field="quality-score-on-paper" header="Quality Score" [filter]="true"
+                    filterMatchMode="contains" [sortable]="true"></p-column>
+                <p-column field="score-as-factor-of-outlet-and-quality" header="Score as Factor" [filter]="true"
+                    filterMatchMode="contains" [sortable]="true"></p-column>
+
+                <p-column field="remark" header="Remark" [filter]="true" filterMatchMode="contains" [sortable]="true">
+                </p-column>
+            </p-dataTable>
+        </div>
+
+
+        <div style="background-color: white;" style="margin: auto;">
+            <h2> Books Articles or Chapters Assessment</h2>
+
+            <p-dataTable #dt0 [tableStyle]="{'table-layout':'auto'}" [value]="gradingResults.BookArticleOrChapter"
+                [paginator]="true" [rows]="30" [style]="{ 'min-width' : '300px'}" class="ptablestyle">
+
+                <p-column field="sn" header="Full Name" [filter]="true" filterMatchMode="contains" [sortable]="true">
+                </p-column>
+                <p-column field="title-of-paper" header="Title Of Paper" [filter]="true" filterMatchMode="contains"
+                    [sortable]="true"></p-column>
+                <p-column field="category-of-outlet" header="Category Of Outlet" [filter]="true"
+                    filterMatchMode="contains" [sortable]="true"></p-column>
+                <p-column field="authorship" header="Authroship" [filter]="true" filterMatchMode="contains"
+                    [sortable]="true">
+                </p-column>
+                <p-column field="score" header="Score" [filter]="true" filterMatchMode="contains" [sortable]="true">
+                </p-column>
+                <p-column field="quality-score-on-paper" header="Quality Score on Paper" [filter]="true"
+                    filterMatchMode="contains" [sortable]="true"></p-column>
+                <p-column field="score-as-factor-of-outlet-and-quality" header="Score as Factor" [filter]="true"
+                    filterMatchMode="contains" [sortable]="true"></p-column>
+
+                <p-column field="remark" header="Remark" [filter]="true" filterMatchMode="contains" [sortable]="true">
+                </p-column>
+            </p-dataTable>
+        </div>
+
+
+
+        <div class=" container container-fluid">
+            <div class="container" style="margin-top: 40px; background-color: white;">
+                <span>
+                    <button type="button" class="btn btn-primary btn-xs" (click)="updateScore(data.spNumber)"
+                        style="width: 300px ; height: 30px;">
+                        Update All Scores
+                    </button>
+                </span>
+            </div>
+    
+    
+            <div style="background-color: white;">
+                <h2> Academic Qualification Assessment </h2>
+                <p>Total Score ::: {{gradingResults.AcademicOrProfessionalGrading}}</p>
+            </div>
+    
+    
+    
+            <div style="background-color: white;">
+                <h2> Academic Distinction / Commendation Assessment </h2>
+                <p>Total Score ::: {{gradingResults.AcademicDistinctionOrCommendation}}</p>
+            </div>
+    
+    
+            <div style="background-color: white;">
+                <h2> Cognate Experience </h2>
+                <p>Total Score ::: <input type="number" name="cognateExp" id="" value="0">
+                    <span>
+                        <button type="button" class="btn btn-danger btn-xs" (click)="updateScore(data.spNumber)">
+                            Update Score
+                        </button>
+                    </span>
+                </p>
+            </div>
+    
+            <div style="background-color: white;">
+                <h2> Teaching Assessment </h2>
+                <p>Total Score ::: <input type="number" name="cognateExp" id="" value="0">
+                    <span>
+                        <button type="button" class="btn btn-danger btn-xs" (click)="updateScore(data.spNumber)">
+                            Update Score
+                        </button>
+                    </span>
+                </p>
+            </div>
+    
+    
+    
+            <div style="background-color: white;">
+                <h2> Work Load </h2>
+                <p>Total Score ::: <input type="number" name="cognateExp" id="" value="0">
+                    <span>
+                        <button type="button" class="btn btn-danger btn-xs" (click)="updateScore(data.spNumber)">
+                            Update Score
+                        </button>
+                    </span>
+                </p>
+            </div>
+    
+    
+            <div style="background-color: white;">
+                <h2> HOD's Assesment </h2>
+                <p>Total Score ::: <input type="number" name="cognateExp" id="" value="0">
+                    <span>
+                        <button type="button" class="btn btn-danger btn-xs" (click)="updateScore(data.spNumber)">
+                            Update Score
+                        </button>
+                    </span>
+                </p>
+            </div>
+    
+            <div style="background-color: white;">
+                <h2> Student Assessment </h2>
+                <p>Total Score ::: <input type="number" name="cognateExp" id="" value="0">
+                    <span>
+                        <button type="button" class="btn btn-danger btn-xs" (click)="updateScore(data.spNumber)">
+                            Update Score
+                        </button>
+                    </span>
+                </p>
+            </div>
+    
+            <div style="background-color: white;">
+                <h2> Communit Service Assesment </h2>
+                <p>Total Score ::: <input type="number" name="cognateExp" id=""
+                        [value]=gradingResults.CommunityServiceGrading>
+                    <span>
+                        <button type="button" class="btn btn-danger btn-xs" (click)="updateScore(data.spNumber)">
+                            Update Score
+                        </button>
+                    </span>
+                </p>
+            </div>
+    
+    
+    
+    
+            <div style="background-color: white;">
+                <h2> Activity Profile Assessment </h2>
+                <p>Total Score ::: <input type="number" name="cognateExp" id="" value="0">
+                    <span>
+                        <button type="button" class="btn btn-danger btn-xs" (click)="updateScore(data.spNumber)">
+                            Update Score
+                        </button>
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        
+
+
+    </ng-template>
+
+
+</div>

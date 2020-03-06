@@ -1,0 +1,56 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-md-12" style="position: sticky">
+    <h2>All Users </h2>
+    <ol class="breadcrumb">
+      <li>
+        <a routerLink="/dashboard/admindashboard">Dashboard</a>
+      </li>
+      <li>
+        <a [routerLink]="['/dashboard/users']">Users</a>
+      </li>
+    </ol>
+  </div>
+</div>
+
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight" >
+    <div class="row">
+
+
+ <p-dataTable #dt  [tableStyle]="{'table-layout':'auto'}"  [value]="allUsers" [paginator]="true" [rows]="10" >
+
+
+    <!-- <p-column header="Index" [filter]="true" filterMatchMode="contains" [sortable]="true">
+      <ng-template let-index = "rowIndex">
+        {{index}}
+      </ng-template>
+      
+    </p-column> -->
+    <p-column field="spNumber" header="Sp Number" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+    <p-column field="email" header="Email Address" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+    <p-column field="_id" header="User Id" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+    <p-column field="activated" header="Account Activated" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+    <p-column field="dateReg" header="Date Registered" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+
+  
+    <p-column field="status" header="Action" [sortable]="true" >
+        <ng-template let-index = "rowIndex"  let-data ="rowData" pTemplate="body">
+          <button  style="background-color : blue; color: white;" type="button" class="btn btn-xs" (click)="viewGradingResults(data.spNumber)">View Grading Results</button> &nbsp;
+          <button type="button" class="btn btn-primary btn-xs" (click)="viewMore(data.spNumber)">View More Details</button> &nbsp;
+        </ng-template>
+      </p-column>
+  
+  </p-dataTable>
+
+    </div>
+ </div>
+
+
+  
+  
+ 
+  
+  
+  <p-toast position="top-right"></p-toast>

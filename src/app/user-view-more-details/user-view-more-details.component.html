@@ -1,0 +1,721 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-md-12" style="position: sticky">
+    <h2>User View More Details - {{username}} </h2>
+    <ol class="breadcrumb">
+
+      <li>
+        <a routerLink="/dashboard/admindashboard">Dashboard</a>
+      </li>
+
+      <li>
+        <a [routerLink]="['/dashboard/users','']">Users</a>
+      </li>
+
+      <li>
+        <a [routerLink]="['/dashboard/user-view-more-details',username]">User View More Details</a>
+      </li>
+
+      <!--<li class="active">-->
+      <!--<strong>Downloaded Exams</strong>-->
+      <!--</li>-->
+    </ol>
+  </div>
+</div>
+
+
+<div class="wrapper wrapper-content">
+  <div class="row" id="table-container">
+
+  
+    <div style="background-color: white;">
+      <h2>PERSONAL INFORMATION</h2>
+      <p-dataTable #dt0 [tableStyle]="{'table-layout':'auto'}" [value]="personalInformation" [paginator]="true"
+        [rows]="30" [scrollable]="true">
+        <p-column field="nameInFull" header="Full Name" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="dob" header="DOB" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="sex" header="Sex" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="maritalStatus" header="Marital Status" [filter]="true" filterMatchMode="contains"
+          [sortable]="true"></p-column>
+        <p-column field="town" header="Town" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="lga" header="LGA" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+        <p-column field="senatorialDestrict" header="Senatorial Destrict" [filter]="true" filterMatchMode="contains"
+          [sortable]="true"></p-column>
+      </p-dataTable>
+    </div>
+
+
+    <div style="background-color: white;">
+      <h2>PHONE NUMBER </h2>
+      <p-dataTable #dt1 [tableStyle]="{'table-layout':'auto'}" [value]="personalInformation['phoneNumbers']" [paginator]="true">
+        <p-column field="phoneNumber" header="Phone Number" [filter]="true" filterMatchMode="contains"
+          [sortable]="true"></p-column>
+      </p-dataTable>
+    </div>
+
+
+    <!---------------email address --------------->
+    <div style="background-color: white;">
+      <h2>EMAIL ADDRESS</h2>
+      <p-dataTable #dt2 [tableStyle]="{'table-layout':'auto'}" [value]="personalInformation['emailAddresses']" [paginator]="true">
+        <p-column field="emailAddress" header=" Email Address" [filter]="true" filterMatchMode="contains"
+          [sortable]="true"></p-column>
+      </p-dataTable>
+    </div>
+
+    <div style="background-color: white;">
+      <h2>CONTACT ADDRESS</h2>
+      <p-dataTable #dt3 [tableStyle]="{'table-layout':'auto'}" [value]="personalInformation.contactAddresses" [paginator]="true">
+        <p-column field="contactAddress" header=" Contact Address " [filter]="true" filterMatchMode="contains"
+          [sortable]="true"></p-column>
+      </p-dataTable>
+    </div> 
+
+
+    <div style="background-color: white;">
+      <h2 style="text-transform: capitalize"> {{ "Educational Institution Attended" | uppercase }} </h2>
+      <p-dataTable #dt2 [tableStyle]="{'table-layout':'auto'}" [value]="dataSource['eaphni']['educationArray']"
+        [paginator]="true" [rows]="30">
+        <p-column field="schoolAttended" header="School Attended" [filter]="true" filterMatchMode="contains"
+          [sortable]="true"></p-column>
+        <p-column field="fromDate" header="From Date" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="toDate" header="To Date" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+      </p-dataTable>
+    </div>
+
+
+    <div style="background-color: white;">
+      <h2 style="text-transform: capitalize"> {{ "Academic Qaulifications" | uppercase }} </h2>
+      <p-dataTable #dt2 [tableStyle]="{'table-layout':'auto'}" [value]="dataSource['eaphni']['academicQualifications']"
+        [paginator]="true" [rows]="30">
+        <p-column field="title" header="Academic Qaulification" [filter]="true" filterMatchMode="contains"
+          [sortable]="true"></p-column>
+        <p-column field="degree" header="Degree" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="date" header="Date Received" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+      </p-dataTable>
+    </div>
+
+
+
+    <div style="background-color: white;">
+
+      <h2 style="text-transform: capitalize"> {{ "professional Qaulifications" | uppercase }} </h2>
+      <p-dataTable #dt3 [tableStyle]="{'table-layout':'auto' , 'background-color' : 'white'}"
+        [value]="dataSource['eaphni']['professionalQualifications']" [paginator]="true" [rows]="30">
+        <p-column field="receivedFrom" header="Received From" [filter]="true" filterMatchMode="contains"
+          [sortable]="true"></p-column>
+        <!-- <p-column field="title" header="Title" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column> -->
+        <p-column field="date" header="Date Received" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+      </p-dataTable>
+
+    </div>
+
+
+
+
+    <div style="background-color: white;">
+      <h2 style="text-transform: capitalize"> {{ "internation recognitions" | uppercase }} </h2>
+      <p-dataTable #dt4 [tableStyle]="{'table-layout':'auto'}"
+        [value]="dataSource['eaphni']['internationalRecommendations']" [paginator]="true" [rows]="30">
+
+        <p-column field="receivedFrom" header="Received From" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+
+        <p-column field="title" header="Title" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+
+        <p-column field="date" header="Date Received" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+
+      </p-dataTable>
+    </div>
+
+
+    <div style="background-color: white;">
+      <h2 style="text-transform: capitalize"> {{ "prizes" | uppercase }} </h2>
+      <p-dataTable #dt4 [tableStyle]="{'table-layout':'auto'}" [value]="dataSource['eaphni']['prizes']"
+        [paginator]="true" [rows]="30">
+
+        <p-column field="receivedFrom" header="Received From" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+
+        <p-column field="title" header="Title" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+
+        <p-column field="date" header="Date Received" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+
+      </p-dataTable>
+    </div>
+
+
+    <div style="background-color: white;">
+      <h2 style="text-transform: capitalize"> {{ "honours" | uppercase }} </h2>
+      <p-dataTable #dt4 [tableStyle]="{'table-layout':'auto'}" [value]="dataSource['eaphni']['prizes']"
+        [paginator]="true" [rows]="30">
+
+        <p-column field="receivedFrom" header="Received From" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+
+        <p-column field="title" header="Title" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+
+        <p-column field="date" header="Date Received" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+
+      </p-dataTable>
+    </div>
+
+    <div style="background-color: white;">
+      <h2 style="text-transform: capitalize"> {{ "scholarship" | uppercase }} </h2>
+      <p-dataTable #dt4 [tableStyle]="{'table-layout':'auto'}" [value]="dataSource['eaphni']['prizes']"
+        [paginator]="true" [rows]="30">
+
+        <p-column field="receivedFrom" header="Received From" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+
+        <p-column field="title" header="Title" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+
+        <p-column field="date" header="Date Received" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+
+      </p-dataTable>
+    </div>
+
+
+
+
+    <div style="background-color: white;">
+      <h2 style="text-transform: capitalize"> {{ "Work Experience"  | uppercase }} </h2>
+      <p-dataTable #dt5 [tableStyle]="{'table-layout':'auto'}"
+        [value]="dataSource['masterFormGroupings']['workExperience']" [paginator]="true" [rows]="30">
+        <p-column field="organization" header="Organisation" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+        <p-column field="duties" header="Duties" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="postHeld" header="Post Held" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="fromDate" header="From Date" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="toDate" header="To Date" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+      </p-dataTable>
+    </div>
+
+
+    <h2 style="text-transform: capitalize"> {{ "Commendation" | uppercase }} </h2>
+    <p-dataTable #dt55 [tableStyle]="{'table-layout':'auto'}"
+      [value]="dataSource['masterFormGroupings']['commendation']" [paginator]="true" [rows]="30">
+      <p-column field="by" header="Commendation By" [filter]="true" filterMatchMode="contains" [sortable]="true">
+      </p-column>
+      <p-column field="commendationDate" header="Commendation Date" [filter]="true" filterMatchMode="contains"
+        [sortable]="true">
+      </p-column>
+      <p-column field="commendationFor" header="Commendation For" [filter]="true" filterMatchMode="contains"
+        [sortable]="true"></p-column>
+    </p-dataTable>
+
+
+    <div style="background-color: white;">
+      <h2 style="text-transform: capitalize"> {{ "Journal Article In Print Publication" | uppercase }} </h2>
+
+      <p-dataTable #dt0 [tableStyle]="" [value]="dataSource.masterFormGroupings.publications.artInP" [paginator]="true"
+        [rows]="3000" [scrollable]="true" [responsive]="true" [loading]="loading" [style]="{ 'min-width' : '300px'}"
+        class="ptablestyle">
+
+        <p-column field="pubName" header="Name on Publication" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+        <p-column field="title" header="Title" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="publisher" header="Journal Publisher" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+        <p-column field="sn" header="Serial Number" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="availableAt" header="Available At" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+        <p-column field="used" header="Used" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="lf" header="Journal Category" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="journalA" header="Journal Full Details" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+        <p-column field="coAuthors" header="Journal Co-Authors" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+        <p-column field="g8Country" header="Journal G8-Country" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+        <p-column field="volume" header="Journal Volume" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+      </p-dataTable>
+
+
+    </div>
+
+
+
+    <div style="background-color: white;">
+      <h2 style="text-transform: capitalize"> {{ " ARTICLES ACCEPTED FOR PUBLICATION (IN PRESS)" | uppercase }} </h2>
+
+      <p-dataTable #dt0 [tableStyle]="" [value]="dataSource.masterFormGroupings.publications.articlesAcc"
+        [paginator]="true" [rows]="3000" [scrollable]="true" [responsive]="true" [loading]="loading"
+        [style]="{ 'min-width' : '300px'}" class="ptablestyle">
+
+        <p-column field="pubName" header="Name on Publication" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+        <p-column field="title" header="Title" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="publisher" header="Journal Publisher" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+        <p-column field="sn" header="Serial Number" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="availableAt" header="Available At" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+        <p-column field="used" header="Used" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="lf" header="Journal Category" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="journalA" header="Journal Full Details" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+
+      </p-dataTable>
+
+    </div>
+
+
+
+
+
+    <div style="background-color: white;">
+      <h2 style="text-transform: capitalize"> {{ "BOOK ARTICLE / CHATPER" | uppercase }} </h2>
+
+      <p-dataTable #dt0 [tableStyle]="" [value]="dataSource.masterFormGroupings.publications.bookArticlesOrChapter"
+        [paginator]="true" [rows]="3000" [scrollable]="true" [responsive]="true" [loading]="loading"
+        [style]="{ 'min-width' : '300px'}" class="ptablestyle">
+
+        <p-column field="bookArtChapt" header="Book" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+
+        <p-column field="used" header="Used for Grading" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+
+      </p-dataTable>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <div style="background-color: white;">
+      <h2 style="text-transform: capitalize"> {{ "Edited Conference Proceedings" | uppercase }} </h2>
+
+      <p-dataTable #dt0 [tableStyle]="" [value]="dataSource.masterFormGroupings.publications.editedConf"
+        [paginator]="true" [rows]="3000" [scrollable]="true" [responsive]="true" [loading]="loading"
+        [style]="{ 'min-width' : '300px'}" class="ptablestyle">
+        <p-column field="pubName" header="Name on Publication" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+        <p-column field="title" header="Title" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="publisher" header="Journal Publisher" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+        <p-column field="sn" header="Serial Number" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="availableAt" header="Available At" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+        <p-column field="used" header="Used" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="lf" header="Category" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="editCP" header="Full Details" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+      </p-dataTable>
+
+    </div>
+
+
+
+
+    <div style="background-color: white;">
+      <h2 style="text-transform: capitalize"> RESEARCH IN PROGRESS </h2>
+      <p-dataTable #dt8 [tableStyle]="{'table-layout':'auto'}"
+        [value]="dataSource.masterFormGroupings.publications.researchInProgress" [paginator]="true" [rows]="30">
+
+        <p-column field="researchInProgress" header="Research In Progress" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+
+      </p-dataTable>
+    </div>
+
+
+
+    <div style="background-color: white;">
+      <h2 style="text-transform: capitalize"> TECHNICAL REPORT </h2>
+      <p-dataTable #dt8 [tableStyle]="{'table-layout':'auto'}"
+        [value]="dataSource.masterFormGroupings.publications.technicalReport" [paginator]="true" [rows]="30">
+
+        <p-column field="report" header="Technical Report" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+
+        <p-column field="technicalReportDetails" header="Technical Report Details" [filter]="true"
+          filterMatchMode="contains" [sortable]="true">
+        </p-column>
+
+      </p-dataTable>
+    </div>
+
+
+
+
+    <div style="background-color: white;">
+      <h2 style="text-transform: capitalize"> THESIS , DISSERTATION AND PROJECTS </h2>
+      <p-dataTable #dt8 [tableStyle]="{'table-layout':'auto'}"
+        [value]="dataSource.masterFormGroupings.publications.thesisDissPro" [paginator]="true" [rows]="30">
+        <p-column field="thesis" header="Thesis | Dissersation | Project" [filter]="true" filterMatchMode="contains"
+          [sortable]="true"></p-column>
+      </p-dataTable>
+    </div>
+
+
+
+
+    <div style="background-color: white;">
+      <h2 style="text-transform: capitalize"> MAJOR CONFERENCES ATTENDED </h2>
+      <p-dataTable #dt8 [tableStyle]="{'table-layout':'auto'}"
+        [value]="dataSource.masterFormGroupings.conferencesAttended" [paginator]="true" [rows]="30">
+        <p-column field="confPapR" header="Major Conference Attended with Pappers Read" [filter]="true"
+          filterMatchMode="contains" [sortable]="true"></p-column>
+      </p-dataTable>
+    </div>
+
+
+
+    <div style="background-color: white;">
+      <h2 style="text-transform: capitalize"> PAPERS READ </h2>
+      <p-dataTable #dt8 [tableStyle]="{'table-layout':'auto'}" [value]="dataSource.masterFormGroupings.papersRead"
+        [paginator]="true" [rows]="30">
+
+        <p-column field="paper" header="Major Conference Attended with Pappers Read" [filter]="true"
+          filterMatchMode="contains" [sortable]="true">
+        </p-column>
+
+        <p-column field="used" header="Major Conference Attended with Pappers Read" [filter]="true"
+          filterMatchMode="contains" [sortable]="true">
+        </p-column>
+
+      </p-dataTable>
+    </div>
+
+
+
+
+
+
+
+    <div style="background-color: white;">
+      <h2 style="text-transform: capitalize"> FELLOWSHIP </h2>
+      <p-dataTable #dt8 [tableStyle]="{'table-layout':'auto'}" [value]="dataSource.masterFormGroupings.fellowship"
+        [paginator]="true" [rows]="30">
+
+        <p-column field="post" header="Post" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+
+        <p-column field="organization" header="Organisation" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+
+        <p-column field="date" header="Date" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+
+      </p-dataTable>
+    </div>
+
+
+
+
+    <div style="background-color: white;">
+      <h2 style="text-transform: capitalize"> SUPERVISION </h2>
+      <p-dataTable #dt8 [tableStyle]="{'table-layout':'auto'}" [value]="dataSource.masterFormGroupings.fellowship"
+        [paginator]="true" [rows]="30">
+
+        <p-column field="title" header="Title" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+
+        <p-column field="nameOfStudent" header="Organisation" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+
+        <p-column field="_d1" header="Date / Year of Commencement" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+
+        <p-column field="_d2" header=" Commenced / Ongoing " [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+
+
+        <p-column field="soleColla" header="Collaboration" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+
+        <p-column field="degree" header="Degree" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+
+
+      </p-dataTable>
+    </div>
+
+
+    <div style="background-color: white;">
+      <h2 style="text-transform: capitalize"> REFREES </h2>
+      <p-dataTable #dt8 [tableStyle]="{'table-layout':'auto'}" [value]="dataSource.masterFormGroupings.refrees"
+        [paginator]="true" [rows]="30">
+        <p-column field="refreeFullName" header="Refree Full Name" [filter]="true" filterMatchMode="contains"
+          [sortable]="true"></p-column>
+        <p-column field="occupation" header="Occupation" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+        <p-column field="phoneNumber" header="Phone Number " [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+        <p-column field="address" header="Address" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+      </p-dataTable>
+    </div>
+
+
+
+
+    <div style="background-color: white;">
+      <h2 style="text-transform: capitalize"> MEMBERSHIP OF PROFESSIONAL BODIES </h2>
+      <p-dataTable #dt9 [tableStyle]="{'table-layout':'auto'}"
+        [value]="dataSource.masterFormGroupings.membershipOfProfessionalBodies" [paginator]="true" [rows]="30">
+
+        <p-column field="postHeld" header="Organisation Name" [filter]="true" filterMatchMode="contains"
+          [sortable]="true"></p-column>
+
+        <p-column field="organization" header="Organisation" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+
+        <p-column field="no" header="Id Number" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+
+      </p-dataTable>
+    </div>
+
+
+    <div style="background-color: white;">
+
+      <h2 style="text-transform: capitalize"> MEMBERSHIP OF COMMITTEE </h2>
+      <p-dataTable #dt11 [tableStyle]="{'table-layout':'auto'}"
+        [value]="dataSource.masterFormGroupings.specialAssignmentMC" [paginator]="true" [rows]="30">
+
+
+        <p-column field="fromDate" header="From Date" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+
+        <p-column field="organization" header="Organisation" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+
+        <p-column field="postHeld" header="Post Held " [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+
+
+        <p-column field="toDate" header=" To Date" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+
+      </p-dataTable>
+
+    </div>
+
+
+    <div style="background-color: white;">
+
+      <h2 style="text-transform: capitalize"> ADMINISTRATIVE/TECHNICAL EXPERINCES </h2>
+      <p-dataTable #dt11 [tableStyle]="{'table-layout':'auto'}"
+        [value]="dataSource.masterFormGroupings.specialAssignmentATE" [paginator]="true" [rows]="30">
+
+
+        <p-column field="fromDate" header="From Date" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+
+        <p-column field="organization" header="Organisation" [filter]="true" filterMatchMode="contains"
+          [sortable]="true">
+        </p-column>
+
+        <p-column field="postHeld" header="Post Held " [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+
+
+        <p-column field="toDate" header=" To Date" [filter]="true" filterMatchMode="contains" [sortable]="true">
+        </p-column>
+
+      </p-dataTable>
+
+    </div>
+
+
+
+    <h2 style="text-transform: capitalize"> Extra Curricula Activities</h2>
+    <p-dataTable #dt11 [tableStyle]="{'table-layout':'auto'}"
+      [value]="dataSource.masterFormGroupings.extraCurriculaActivities" [paginator]="true" [rows]="30">
+      <p-column field="activity" header="Activity" [filter]="true" filterMatchMode="contains" [sortable]="true">
+      </p-column>
+    </p-dataTable>
+
+
+    <div class="container" style="background-color: white; margin: auto;">
+      <div>
+        <img [src]="dataSource.masterFormGroupings.dateAndSignature.base64Image" alt="Your Signature" width="400px"
+          height="400px" srcset="" class="container">
+        <h4 style=" margin-top: 5% ; font-weight: bold"> SIGNATURE </h4>
+        <h4 style=" margin-top: 5% ; font-weight: bold"> DATE :
+          {{dataSource.masterFormGroupings.dateAndSignature.dateSigned}}
+        </h4>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <h2 style="text-transform: capitalize ; color: rgb(0, 110, 255); margin-top:4%">Files Uploaded </h2>
+        <p-dataTable #dt11  [tableStyle]="{'table-layout':'auto'}"  [value]="files" [paginator]="true" [rows]="30">
+             <p-column field="owner" header="Owned By" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             <p-column field="fileName" header="File Name" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             <p-column field="collectionName" header="Upload To" [filter]="true" filterMatchMode="contains" [sortable]="true"></p-column>
+             
+             <p-column field="fileId" header="Action" [sortable]="true" >
+              <ng-template let-index = "rowIndex"  let-data ="rowData" pTemplate="body">
+                
+                <button class="btn btn-success" type="button" (click)="downloadFile(data.fileId, data.collectionName , data.fileName)">
+                  <i class="fa fa-download"></i>&nbsp;
+                  <span class="bold">Download</span>
+                </button> &nbsp; 
+
+                <button class="btn btn-danger" type="button" (click)="deleteFile(data.fileId, data.collectionName , data.fileName)">
+                        <i class="fa fa-remove"></i>&nbsp;
+                        <span class="bold">Delete</span>
+                </button> &nbsp; &nbsp;
+
+              </ng-template>
+            </p-column>
+
+        </p-dataTable> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!------------------------NEW UPDATES USING THE PREVIEW COMPONENT--------------------------------------------->
+    <!-----------preview the CV component ----->
+    <!-- <app-preview-cv [showCard]="false" [showHeader]="false"> </app-preview-cv> -->
+
+
+  <div>
+</div>
+
+<p-toast position="top-right"></p-toast>

@@ -1,0 +1,13 @@
+.ui-datatable-data> tr> td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+}
+
+
+.ptablestyle {
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 100px;
+}
