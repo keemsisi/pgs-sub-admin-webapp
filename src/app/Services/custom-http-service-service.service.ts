@@ -7,7 +7,9 @@ import { MessageService } from 'primeng/primeng';
 @Injectable()
 export class CustomHttpService {
 
-  staticURL = 'http://localhost:8081';
+  // staticURL = 'http://localhost:8081';
+  staticURL: 'https://promotbotformserver.herokuapp.com';
+
 //  private staticURL = 'http://' + window.location.hostname+':8080';
 
 

@@ -7,9 +7,9 @@ export class CacheService {
   password: string ;
   loggedIn = false ;
   role : String ;
-  serverURL = 'http://localhost:8081';
+  // serverURL = 'http://localhost:8081';
   registered: boolean ;
-  // serverURL: 'https://promotbotformserver.herokuapp.com';
+  serverURL: 'https://promotbotformserver.herokuapp.com';
   payloadData: string ;
   registrationSuccessful: Boolean ;
 
